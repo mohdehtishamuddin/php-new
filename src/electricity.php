@@ -25,19 +25,19 @@ function calculate_bill($units) {
     if($units <= 50) {
         $bill = $units * $unit_cost_first;
     }
-    else if($units > 50 && $units <= 100) {
+    else if($units > 50 && $units <= 150) {
         $temp = 50 * $unit_cost_first;
         $remaining_units = $units - 50;
         $bill = $temp + ($remaining_units * $unit_cost_second);
     }
-    else if($units > 100 && $units <= 150) {
+    else if($units > 150 && $units <= 250) {
         $temp = (50 * 3.5) + (100 * $unit_cost_second);
-        $remaining_units = $units - 100;
+        $remaining_units = $units - 150;
         $bill = $temp + ($remaining_units * $unit_cost_third);
     }
     else {
         $temp = (50 * 3.5) + (100 * 4.00) + (100 * 5.20);
-        $remaining_units = $units - 200;
+        $remaining_units = $units - 100;
         $bill = $temp + ($remaining_units * $unit_cost_fourth);
     }
     return number_format((float)$bill, 2, '.', '');
